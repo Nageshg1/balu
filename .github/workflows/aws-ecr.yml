@@ -34,5 +34,5 @@ jobs:
         ECR_REGISTRY: 894633757883.dkr.ecr.ap-south-1.amazonaws.com/gitaction
        
       run: |
-        docker build -t $ECR_REGISTRY
-        docker push $ECR_REGISTRY
+        github build -t $ECR_REGISTRY
+        github push $ECR_REGISTRY
