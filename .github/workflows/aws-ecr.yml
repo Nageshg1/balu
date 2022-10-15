@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
 
-name: Node Project `my-app` CI on ECR
+name: Node Project `acttest` CI on ECR
 
 jobs:
   deploy:
@@ -18,8 +18,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: AKIA5ATCTZS57MVNRN5U
-          aws-secret-access-key: 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
+          aws-access-key-id: AKIA5ATCTZS52KVR4NUO
+          aws-secret-access-key: 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
           aws-region: ap-south-1
 
       - name: Login to Amazon ECR
@@ -29,8 +29,8 @@ jobs:
       - name: Build, tag, and push the image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: 894633757883.dkr.ecr.ap-south-1.amazonaws.com/gitaction
-          ECR_REPOSITORY: gitaction
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: acttest
           IMAGE_TAG: 1.0
         run: |
           # Build a docker container and push it to ECR 
